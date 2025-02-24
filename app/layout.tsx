@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./_neutral/header/Header";
+import { Toaster } from "@/lib/ShowToast";
 
 
 
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body
         className={`font-millik antialiased`}
       >
+        <Toaster />
         <Header />
         {children}
       </body>
