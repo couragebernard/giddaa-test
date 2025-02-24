@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "./_neutral/header/Header";
 
 
 
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body
         className={`font-millik antialiased`}
       >
+        <Header />
         {children}
       </body>
     </html>
