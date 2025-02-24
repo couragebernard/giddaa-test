@@ -2,11 +2,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const Logo = () => {
+type Props = {
+    bg: "green" | "white",
+    width?:number;
+    height?:number;
+}
+
+const Logo = (props:Props) => {
     return (
         <div className="">
             <Link href="/">
-                <Image src={'/images/Logo.png'} alt="logo" width={500} height={500} className='w-16 h-7' />
+                <Image src={`${props.bg === "white" ? '/images/Logo.png' : '/images/Logo_green_bg.png'}`} alt="logo" width={500} height={500} className={`w-${props.width ?? 16} h-${props.height ?? 7}`} />
             </Link>
         </div>
     )
