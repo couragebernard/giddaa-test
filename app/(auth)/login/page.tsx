@@ -4,8 +4,8 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className="font-[sans-serif]">
-      <div className="min-h-screen flex fle-col items-center justify-center py-6 px-4">
+    <div className="">
+      <div className="min-h-screen flex flex-col items-center justify-center py-6 px-4">
         <div className="grid md:grid-cols-2 items-center gap-6 max-w-6xl w-full">
           <div className="border border-gray-300 rounded-lg p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-md:mx-auto">
             <LoginForm />

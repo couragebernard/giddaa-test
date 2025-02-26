@@ -4,15 +4,15 @@ import React from 'react'
 
 type Props = {
     bg: "green" | "white",
-    width?:number;
-    height?:number;
+    width?:number | string;
+    height?:number | string;
 }
 
 const Logo = (props:Props) => {
     return (
         <div className="">
             <Link href="/">
-                <Image src={`${props.bg === "white" ? '/images/Logo.png' : '/images/Logo_green_bg.png'}`} alt="logo" width={500} height={500} className={`w-${props.width ?? 16} h-${props.height ?? 7}`} />
+                <Image src={`${props.bg === "white" ? '/images/Logo.png' : '/images/Logo_green_bg.svg'}`} alt="logo" width={200} height={200} className={`w-${props.width ?? "fit"} h-${props.height ?? 7}`} />
             </Link>
         </div>
     )

@@ -21,10 +21,52 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link"
 import Logo from "@/components/neutral/logo/Logo"
-import { developerMenuItems } from "./DeveloperMenu"
-import { MdArrowDropDown } from "react-icons/md";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { MdArrowDropDown, MdOutlineDashboard } from "react-icons/md";
+import { LuClipboardList } from "react-icons/lu";
+import { developerMenuItemsType } from "@/types/developer";
+import { TbHomeEco } from "react-icons/tb";
+import { TbHomeDollar } from "react-icons/tb";
 
+export const developerMenuItems: developerMenuItemsType[] = [
+    {
+        name: "Dashboard",
+        link: "/developer",
+        icon: <MdOutlineDashboard />
+    },
+    {
+        name: "Properties",
+        link: "/developer/properties",
+        icon: <TbHomeEco />
+    },
+    {
+        name: "Plans",
+        link: "/developer/plans",
+        icon: <LuClipboardList />,
+        submenu: [
+            {
+                name: "Plans",
+                link: "/#"
+            },
+        ]
+    },
+    {
+        name: "Mortgage Options",
+        link: "/developer/mortgage-options",
+        icon: <TbHomeDollar />,
+        submenu: [
+            {
+                name: "Invest in Giddaa",
+                link: "/#"
+            },
+            {
+                name: "Giddaa funds",
+                link: "/#"
+            },
+        ]
+    }
+
+]
 
 
 
@@ -42,11 +84,11 @@ export function DeveloperSidebar() {
     }
 
     return (
-        <Sidebar>
-            <SidebarHeader className="mb-4 py-3 px-3 space-y-2 border-b border-b-gray-200">
+        <Sidebar className="text-white">
+            <SidebarHeader className="mb-4 py-3 px-5 space-y-2 border-b border-b-gray-300">
 
-                <Logo bg='green' width={24} height={10} />
-                <p className='text-[10px]'>Residencia Moderno Smart...</p>
+                <Logo bg='green' width={"fit"} height={10} />
+                <p className='text-[14px] uppercase'>Residencia Moderno Smart...</p>
 
             </SidebarHeader>
             <SidebarContent>
@@ -93,14 +135,13 @@ export function DeveloperSidebar() {
                             ))}
                         </SidebarMenu> */}
 
-
                         <SidebarMenu className="gap-3">
                             {developerMenuItems.map((item) =>
                                 item.submenu ? (
                                     <Collapsible key={item.name} defaultOpen={pathname.startsWith(item.link)} className="group/collapsible">
                                         <SidebarMenuItem>
                                             <CollapsibleTrigger asChild>
-                                                <SidebarMenuButton className="flex items-center justify-between w-full py-3 px-3 rounded-md cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800">
+                                                <SidebarMenuButton className="flex items-center gap-2 w-full py-3 px-3 !h-auto !rounded-full cursor-pointer !hover:bg-white !hover:text-giddaa-500">
                                                     <div className="flex items-center gap-3">
                                                         <span className="text-xl">{item.icon}</span>
                                                         <span>{item.name}</span>
@@ -112,12 +153,12 @@ export function DeveloperSidebar() {
                                                 <SidebarMenuSub>
                                                     {item.submenu.map((sub) => (
                                                         <SidebarMenuSubItem key={sub.name}>
-                                                            <SidebarMenuSubButton isActive={pathname === sub.link} className="w-full px-0">
+                                                            <SidebarMenuSubButton isActive={pathname === sub.link} className="w-full px-0 rounded-full">
                                                                 <Link
                                                                     href={sub.link}
-                                                                    className={`w-full block py-2 px-4 text-sm rounded-md transition ${pathname === sub.link
-                                                                            ? "bg-blue-500 text-white"
-                                                                            : "hover:bg-gray-200 dark:hover:bg-gray-800"
+                                                                    className={`w-full block py-3 px-4 text-sm !rounded-full text-white !h-auto transition ${pathname === sub.link
+                                                                            ? "bg-white text-giddaa-500"
+                                                                            : "!hover:bg-white hover:text-giddaa-500"
                                                                         }`}
                                                                 >
                                                                     {sub.name}
@@ -135,7 +176,7 @@ export function DeveloperSidebar() {
                                         <SidebarMenuButton asChild isActive={pathname === item.link}>
                                             <Link
                                                 href={item.link}
-                                                className={`flex items-center gap-3 w-full py-3 px-3 rounded-md transition ${pathname === item.link ? "bg-blue-500 text-white" : "hover:bg-gray-200 dark:hover:bg-gray-800"
+                                                className={`flex items-center gap-3 w-full block py-3 px-4 text-sm !rounded-full !h-auto transition ${pathname === item.link ? "!text-giddaa-500" : "!hover:bg-white !hover:text-giddaa-500"
                                                     }`}
                                             >
                                                 <span className="text-xl">{item.icon}</span>

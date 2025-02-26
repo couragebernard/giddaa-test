@@ -41,18 +41,25 @@ const cookieStore = await cookies();
 }
 
 export async function loggedInUser() {
-    const cookieStore = await cookies();
+  const cookieStore = await cookies()
+  try {
     const token = cookieStore.get("giddaatoken")?.value;
-  
     if (!token) {
-      return { data: null, error: "Unauthorized: Kindly login first." };
+      return { data: null, error: "Unauthorized: Kindly log in first." };
     }
-  
-    try {
-      const decoded = jwt.verify(token, JWT_SECRET);
-  
-      return { data: (decoded as { id: string }).id, error: null };
-    } catch {
-      return { data: null, error: "Unauthorized: Kindly login first." };
-    }
+
+    const decoded = jwt.verify(token, JWT_SECRET) as { id: string; email: string; token: string };
+
+    return {
+      data: {
+        id: decoded.id,
+        email: decoded.email,
+        token: decoded.token
+      },
+      error: null,
+    };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (error) {
+    return { data: null, error: "Unauthorized: Invalid or expired session." };
   }
+}

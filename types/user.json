@@ -140,3 +140,56 @@
     "declaredType": null,
     "statusCode": 200
 }
+
+{
+    "name": "Samson Berry",
+    "city": {
+        "id": "bb426031-897a-4118-9570-f57818b3aec0",
+        "name": "Dukku",
+        "stateId": "GOMBE",
+        "dateCreated": "2024-03-18T19:33:43.383575",
+        "state": null,
+        "popularLandMark": null,
+        "popularLandMarkLongitude": 0,
+        "popularLandMarkLatitude": 0,
+        "extraProperty": null
+    },
+    "address": "Nulla voluptatem ill",
+    "landmark": "Eum omnis vitae natu",
+    "longitude": 0,
+    "videoUrl": "Sit impedit veniam",
+    "landSize": 43,
+    "ownerType": "DEVELOPER",
+    "latitude": 0,
+    "description": "Magni numquam quae m",
+    "completionStatus": "COMPLETED",
+    "completionDate": "2008-12-30T00:00:00",
+    "completionLevel": 86,
+    "features": [],
+    "feature": null,
+    "images": [],
+    "houses": [],
+    "houseStats": {
+        "totalHouses": 0,
+        "totalUnits": 0
+    },
+    "organizationId": "c05f48a0-2c6d-45b6-806a-52c26179bd19",
+    "floors": 240,
+    "organization": {
+        "id": "c05f48a0-2c6d-45b6-806a-52c26179bd19",
+        "name": "Talik Homes",
+        "address": "Zone 5, Copper House, Suite 208 Algiers St, Wuse 904101, Abuja, Federal Capital Territory",
+        "coverImage": "https://res.cloudinary.com/giddaa-dev/image/upload/c_scale,w_1000/f_auto/q_auto:good/cover-images/bed88eb5-16ff-48fc-83fa-b2e2a2b21ff3.jpeg",
+        "logo": "https://res.cloudinary.com/giddaa-dev/image/upload/c_scale,w_1000/f_auto/q_auto:good/logos/79265bcf-bcfb-49de-8f78-46dedb382f8d.jpeg",
+        "houseCount": 0,
+        "estateCount": 0,
+        "yearsInOperation": 25,
+        "documentCount": 0,
+        "partnerCount": 0
+    },
+    "id": "67cdd8e7-ebae-4529-a65f-96a2e044f293",
+    "createdBy": "{\n  \"Id\": \"418e8fd3-16b0-46ab-9863-4353460b157d\",\n  \"Name\": \"Isreal Wisdom\",\n  \"RegistrationType\": \"-\",\n  \"Action\": \"Admin Create Estate\"\n}",
+    "dateCreated": "2025-02-21T13:35:23.265675",
+    "dateLastModified": null,
+    "lastModifiedBy": null
+}

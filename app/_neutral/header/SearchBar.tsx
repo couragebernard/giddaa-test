@@ -4,16 +4,14 @@ import { IoSearch } from 'react-icons/io5'
 
 const SearchBar = () => {
     return (
-        <div className="w-fit min-w-[70px]">
-            <div className="relative flex items-center">
-                <IoSearch className='text-giddaa-600 font-bold' />
-                <input
-                    className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border-none rounded-md pl-3 pr-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-200 hover:border-slate-300 shadow-sm focus:shadow"
-                    placeholder="Search for anything."
-                />
-
-            </div>
-        </div>
+        <form className="max-w-[300px] w-fit">
+                    <div className="relative">
+                        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <IoSearch className='text-giddaa-600 font-bold' />
+                        </div>
+                        <input type="search" className="block w-full py-2 px-3 ps-10 text-sm text-gray-900 border border-gray-200 rounded-lg focus:transparent" placeholder="Search for anything..." />
+                    </div>
+                </form>
     )
 }
 
