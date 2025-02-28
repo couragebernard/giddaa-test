@@ -1,7 +1,7 @@
 "use client"
 
 import { estateZSchema, estateZType } from '@/schemas/developer';
-import React, { useEffect, useTransition } from 'react'
+import React, { useTransition } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form';
 import GiddaaButton from '@/components/neutral/buttons/GiddaaButton';
@@ -155,11 +155,6 @@ const CreateEstateForm = () => {
     } = useForm<estateZType>({
         resolver: zodResolver(estateZSchema),
     });
-
-
-    useEffect(()=>{
-        console.log(errors)
-    },[errors])
 
     const onSubmit = async (formData: estateZType) => {
         

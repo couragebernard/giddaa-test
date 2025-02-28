@@ -97,10 +97,8 @@ export async function createEstate(formData:estateZType) {
     authToken: data?.token,
   });
   if (fetchErr) {
-    console.log(fetchErr)
     return { data: null, error: "There was an error creating the estate." };
   }
-  console.log(fetchData)
   return {data:fetchData, error:null}
 
 }

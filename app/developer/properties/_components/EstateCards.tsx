@@ -27,13 +27,11 @@ const EstateCards = () => {
             const { data, error } = await getAllEstates(currentPage);
 
             if (error) {
-                console.log(error)
                 setError(error);
                 return;
             }
 
             if (data) {
-                console.log(data)
                 setEstates(data.data);
                 setTotalPages(data.totalPages);
                 setTotalRecords(data.totalRecords)
