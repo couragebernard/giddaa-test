@@ -5,10 +5,10 @@ import EstateCards from './_components/EstateCards'
 
 const page = () => {
     return (
-        <div className=''>
-
-            <PropertiesHeader />
-
+        <div>
+            <div className='hidden lg:block'>
+                <PropertiesHeader />
+            </div>
             <EstateCards />
 
         </div>

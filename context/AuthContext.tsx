@@ -4,6 +4,7 @@ import React, { createContext, useContext, useEffect, ReactNode, useTransition }
 import { useRouter, usePathname } from "next/navigation";
 import { showToast } from "@/lib/ShowToast";
 import { loggedInUser } from "@/actions/auth";
+import { FaSpinner } from "react-icons/fa6";
 
 interface AuthContextType {
     isPending: boolean;
@@ -36,7 +37,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }, [pathname, router]);
 
     if (isPending) {
-        return <div>Loading...</div>;
+        return <div className="h-[100vh] w-[100vw] flex justify-center items-center">
+            <div className="flex items-center gap-1 text-giddaa-500"><FaSpinner className="animate-spin" /> <p>Loading...</p></div>
+        </div>;
     }
 
     return (

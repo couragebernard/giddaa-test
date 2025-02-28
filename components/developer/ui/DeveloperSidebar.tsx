@@ -24,11 +24,11 @@ import Logo from "@/components/neutral/logo/Logo"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { MdArrowDropDown, MdOutlineDashboard } from "react-icons/md";
 import { LuClipboardList } from "react-icons/lu";
-import { developerMenuItemsType } from "@/types/developer";
 import { TbHomeEco } from "react-icons/tb";
 import { TbHomeDollar } from "react-icons/tb";
+import { menuItemsType } from "@/types/neutral";
 
-export const developerMenuItems: developerMenuItemsType[] = [
+export const developerMenuItems: menuItemsType[] = [
     {
         name: "Dashboard",
         link: "/developer",
@@ -67,7 +67,6 @@ export const developerMenuItems: developerMenuItemsType[] = [
     }
 
 ]
-
 
 
 export function DeveloperSidebar() {

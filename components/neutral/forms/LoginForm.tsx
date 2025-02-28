@@ -3,7 +3,7 @@
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import React, { useState, useTransition } from 'react'
-import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa6'
+import { FaArrowLeft, FaRegEye, FaRegEyeSlash } from 'react-icons/fa6'
 import GiddaaButton from '../buttons/GiddaaButton'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
@@ -12,6 +12,7 @@ import { loginSchema, loginType } from '@/schemas/auth'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { showToast } from '@/lib/ShowToast'
 import { Login } from '@/actions/auth'
+import { Button } from '@/components/ui/button'
 
 const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -28,7 +29,7 @@ const LoginForm = () => {
         formState: { errors },
     } = useForm<loginType>({
         resolver: zodResolver(loginSchema),
-        defaultValues:{
+        defaultValues: {
             type: "DEVELOPER"
         }
     });
@@ -37,12 +38,12 @@ const LoginForm = () => {
         startTransition(async () => {
             const { data, error } = await Login(formData);
             if (error) {
-                console.log(error)
                 return showToast('error', error || 'Error signing in');
             }
-            console.log(data)
-            showToast('success', 'Login successful. Redirecting...');
-            router.push(redirect);
+            if (data) {
+                showToast('success', 'Login successful. Redirecting...');
+                router.push(redirect);
+            }
 
         })
 
@@ -56,10 +57,12 @@ const LoginForm = () => {
     }
 
     return (
-        <form className="space-y-4"  onSubmit={handleSubmit(onSubmit)} >
+        <form className="space-y-4" onSubmit={handleSubmit(onSubmit)} >
             <div className="mb-8">
+                <Button variant="link" onClick={() => router.back()} className='p-0 text-gray-800'><FaArrowLeft /></Button>
+
                 <h3 className="text-gray-800 text-3xl font-bold">Sign in</h3>
-                <p className="text-gray-500 text-sm mt-4 leading-relaxed">Sign in to your account and explore a world of possibilities with Giddaa.</p>
+                <p className="text-gray-500 text-sm mt-2 leading-relaxed">Sign in to your account and explore a world of possibilities with Giddaa.</p>
             </div>
 
             <div className='space-y-1'>
@@ -110,6 +113,4 @@ const LoginForm = () => {
         </form>
     )
 }
-
 export default LoginForm
-

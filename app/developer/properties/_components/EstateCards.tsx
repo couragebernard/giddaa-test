@@ -7,7 +7,8 @@ import { MdError, MdPlayArrow } from 'react-icons/md';
 import EstateCard from './EstateCard';
 import { EstateType } from '@/types/developer';
 import { FaPlus, FaSpinner } from 'react-icons/fa6';
-import GiddaaButton from '@/components/neutral/buttons/GiddaaButton';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const EstateCards = () => {
 
@@ -54,7 +55,7 @@ const EstateCards = () => {
 
 
     return (
-        <div className='py-8 px-8'>
+        <div className='py-5 px-2 md:px-3 lg:py-8 lg:px-8'>
 
 
             {/* Show error message */}
@@ -81,10 +82,14 @@ const EstateCards = () => {
                     <>
                         <div className="flex justify-between py-5">
                             <p className='font-bold text-2xl'>Estates - {totalRecords ?? 0}</p>
-                            <GiddaaButton beforeIcon={<FaPlus className='text-white' />} text='Create' />
+
+                            <Button asChild className='text-white rounded-full bg-giddaa-500 hover:bg-giddaa-600'>
+                                <Link href="/developer/properties/create-new"><FaPlus className='text-white' /> Create</Link>
+                            </Button>
+
                         </div>
 
-                        <div className='grid grid-cols-4 gap-3'>
+                        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-3'>
                             {
                                 estates?.map((estate) => {
                                     return (

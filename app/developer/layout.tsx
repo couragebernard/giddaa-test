@@ -1,8 +1,9 @@
 
 import React from 'react'
 import { AuthProvider } from '@/context/AuthContext'
-import { DeveloperSidebar } from '@/components/developer/ui/DeveloperSidebar'
+import { developerMenuItems, DeveloperSidebar } from '@/components/developer/ui/DeveloperSidebar'
 import { SidebarProvider } from '@/components/ui/sidebar'
+import MobileHeader from '../_neutral/header/MobileHeader'
 
 
 const layout = ({ 
@@ -19,6 +20,9 @@ const layout = ({
             <DeveloperSidebar />
           </aside>
           <section className="children overflow-y-auto h-[100vh] w-full">
+            <div className='lg:hidden'>
+              <MobileHeader menu={developerMenuItems} />
+            </div>
             <div className="min-h-[90vh">
               {children}
             </div>

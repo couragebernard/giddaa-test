@@ -26,6 +26,7 @@ type FetchOptions = {
 
   
       if (!response.ok) {
+        console.log(data)
         return { data:null, error: data.value.message };
       }
   
